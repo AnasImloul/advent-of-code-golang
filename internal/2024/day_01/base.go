@@ -1,8 +1,8 @@
 package day_01
 
 import (
-	"advent-of-code-golang/internal/day"
-	"advent-of-code-golang/internal/input"
+	"github.com/AnasImloul/advent-of-code-golang/internal/day"
+	"github.com/AnasImloul/advent-of-code-golang/internal/input"
 	"strconv"
 	"strings"
 )

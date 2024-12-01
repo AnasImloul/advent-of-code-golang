@@ -1,1 +1,1 @@
-module advent-of-code-golang
+module github.com/AnasImloul/advent-of-code-golang

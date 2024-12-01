@@ -1,7 +1,7 @@
 package day_01
 
 import (
-	"advent-of-code-golang/internal/day"
+	"github.com/AnasImloul/advent-of-code-golang/internal/day"
 )
 
 type Day01 struct {

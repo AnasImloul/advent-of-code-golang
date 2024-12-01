@@ -1,8 +1,8 @@
 package year2023
 
 import (
-	"advent-of-code-golang/internal/2023/day_01"
 	"fmt"
+	"github.com/AnasImloul/advent-of-code-golang/internal/2023/day_01"
 )
 
 func Run(day int, part string) {

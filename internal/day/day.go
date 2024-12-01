@@ -1,6 +1,6 @@
 package day
 
-import "advent-of-code-golang/internal/input"
+import "github.com/AnasImloul/advent-of-code-golang/internal/input"
 
 type Solver interface {
 	ReadInput() string
