@@ -89,3 +89,26 @@ func rotate270(matrix []string, rows, cols int) []string {
 	}
 	return result
 }
+
+func NumberOfDigits(n int64) int {
+
+	if n == 0 {
+		return 1
+	}
+
+	count := 0
+	for n > 0 {
+		n /= 10
+		count++
+	}
+	return count
+}
+
+func Pow10(n int) int {
+	res := 1
+	for n > 0 {
+		res *= 10
+		n--
+	}
+	return res
+}
