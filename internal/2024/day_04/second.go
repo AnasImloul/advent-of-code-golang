@@ -1,7 +1,6 @@
 package day_04
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -32,7 +31,7 @@ func (d Day) getAllThreeLetterSquares() <-chan []string {
 	return wordChannel
 }
 
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	res := 0
 	for square := range d.getAllThreeLetterSquares() {
 		if square[1][1] != 'A' {
@@ -49,5 +48,5 @@ func (d Day) secondPart() {
 			continue
 		}
 	}
-	fmt.Println(res)
+	return res
 }

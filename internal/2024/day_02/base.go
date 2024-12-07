@@ -24,7 +24,7 @@ func init() {
 
 func readReports() [][]int {
 	var reports [][]int
-	for _, line := range input.ReadLines(Solver.Year, Solver.Day) {
+	for line := range input.ReadLines(Solver.Year, Solver.Day) {
 		if len(line) > 0 {
 			reports = append(reports, utils.ToIntSlice(line, " "))
 		}

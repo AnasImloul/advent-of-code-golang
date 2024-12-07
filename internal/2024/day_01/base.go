@@ -28,7 +28,7 @@ func readSequences() ([]int, []int) {
 	var seq1 []int
 	var seq2 []int
 
-	for _, line := range input.ReadLines(Solver.Year, Solver.Day) {
+	for line := range input.ReadLines(Solver.Year, Solver.Day) {
 		var nums = strings.Split(line, "   ")
 		num1, _ := strconv.Atoi(nums[0])
 		num2, _ := strconv.Atoi(nums[1])

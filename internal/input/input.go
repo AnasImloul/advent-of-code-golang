@@ -1,7 +1,9 @@
 package input
 
 import (
+	"bufio"
 	"fmt"
+	"github.com/joho/godotenv"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -10,10 +12,7 @@ import (
 	"strings"
 )
 
-const (
-	baseURL       = "https://adventofcode.com"
-	sessionCookie = "53616c7465645f5fdf6b9dc13371f00d1c9b110914ad7f01e85a0998537cc2cf33399322105ca93f1d4b6d4d67aebbce955dabaf8c58ce415bd8ec64fb7bbe0f"
-)
+const baseURL = "https://adventofcode.com"
 
 // Read reads the content of the input file for the given year and day.
 // If the file does not exist, it fetches the input from the Advent of Code website and saves it.
@@ -27,13 +26,45 @@ func Read(year, day int) string {
 	return strings.TrimSpace(string(data))
 }
 
-// ReadLines reads the input file for the given year and day and returns its content as a slice of lines.
-func ReadLines(year, day int) []string {
-	return strings.Split(Read(year, day), "\n")
+// ReadLines returns a channel that streams lines from the input file for the given year and day.
+func ReadLines(year, day int) <-chan string {
+	filename := fmt.Sprintf("inputs/%d/day_%02d.txt", year, day)
+	lines := make(chan string, 100) // Buffered channel for better performance
+
+	go func() {
+		defer close(lines)
+		file, err := os.Open(filename)
+		if err != nil {
+			log.Fatalf("Failed to open file: %v", err)
+		}
+		defer file.Close()
+
+		scanner := bufio.NewScanner(file)
+		for scanner.Scan() {
+			lines <- scanner.Text()
+		}
+		if err := scanner.Err(); err != nil {
+			log.Fatalf("Error reading file: %v", err)
+		}
+	}()
+
+	return lines
 }
 
 // fetchAndSaveInput fetches the input from the Advent of Code website and saves it locally.
 func fetchAndSaveInput(year, day int, filename string) string {
+	// Load the environment variables
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error loading .env file: %v", err)
+	}
+
+	// Get the session cookie from the environment variables
+	sessionCookie := os.Getenv("SESSION_COOKIE")
+	if sessionCookie == "" {
+		log.Fatalf("SESSION_COOKIE is not set in the environment variables")
+	}
+
 	// Construct the URL for the input
 	url := fmt.Sprintf("%s/%d/day/%d/input", baseURL, year, day)
 

@@ -1,8 +1,6 @@
 package day_05
 
-import "fmt"
-
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	rules := d.readRules()
 
 	var res int64 = 0
@@ -15,8 +13,7 @@ func (d Day) secondPart() {
 
 		res += int64(ordered[len(ordered)/2])
 	}
-
-	fmt.Println(res)
+	return res
 }
 
 func (d Day) makeValid(sequence []int, rules [][]int) []int {

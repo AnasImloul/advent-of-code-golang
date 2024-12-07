@@ -4,10 +4,10 @@ import "github.com/AnasImloul/advent-of-code-golang/internal/input"
 
 type Solver interface {
 	ReadInput() string
-	Solve(part string)
+	Solve(part string) any
 }
 
-type PartFunc func()
+type PartFunc func() any
 
 type Base struct {
 	Year       int
@@ -17,17 +17,17 @@ type Base struct {
 }
 
 // Solve handles executing the correct part logic.
-func (b Base) Solve(part string) {
+func (b Base) Solve(part string) any {
 	switch part {
 	case "first":
 		if b.FirstPart != nil {
-			b.FirstPart()
+			return b.FirstPart()
 		} else {
 			panic("First part not implemented")
 		}
 	case "second":
 		if b.SecondPart != nil {
-			b.SecondPart()
+			return b.SecondPart()
 		} else {
 			panic("Second part not implemented")
 		}
@@ -39,4 +39,8 @@ func (b Base) Solve(part string) {
 // ReadInput reads the input for the given year and day.
 func (b Base) ReadInput() string {
 	return input.Read(b.Year, b.Day)
+}
+
+func (b Base) ReadLines() <-chan string {
+	return input.ReadLines(b.Year, b.Day)
 }

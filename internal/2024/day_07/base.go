@@ -33,7 +33,7 @@ func (d Day) ReadEquations() <-chan Equation {
 
 	go func() {
 		defer close(ch)
-		for _, line := range strings.Split(d.ReadInput(), "\n") {
+		for line := range d.ReadLines() {
 			if len(line) == 0 {
 				continue
 			}
@@ -59,7 +59,7 @@ func (d Day) ReadEquations() <-chan Equation {
 	return ch
 }
 
-// Define the type for the operation function
+// Operation Define the type for the operation function
 type Operation func(int64, int64) int64
 
 // Shared helper function to avoid duplication, now accepting a list of operations
@@ -69,6 +69,10 @@ func checkPossible(equation Equation, operations []Operation) bool {
 	helper = func(equation Equation, current int64, index int) bool {
 		if index == len(equation.Parts) {
 			return int64(equation.Value) == current
+		}
+
+		if current > int64(equation.Value) {
+			return false
 		}
 
 		// Iterate over the operations list and apply them during recursion

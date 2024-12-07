@@ -1,11 +1,17 @@
 package day_01
 
 import (
-	"fmt"
 	"strings"
 )
 
-var test = 0
+func (d Day) secondPart() any {
+	var res = 0
+	for _, line := range strings.Split(d.ReadInput(), "\n") {
+		var left, right = parseLineWithLiterals(line)
+		res += left*10 + right
+	}
+	return res
+}
 
 // Map for literal number parsing
 var numberLiterals = map[string]int{
@@ -51,13 +57,4 @@ func parseLineWithLiterals(line string) (int, int) {
 	}
 
 	return left, right
-}
-
-func (d Day01) secondPart() {
-	var res = 0
-	for _, line := range strings.Split(d.ReadInput(), "\n") {
-		var left, right = parseLineWithLiterals(line)
-		res += left*10 + right
-	}
-	fmt.Println(res)
 }

@@ -1,9 +1,18 @@
 package day_04
 
 import (
-	"fmt"
 	"strings"
 )
+
+func (d Day) firstPart() any {
+	res := 0
+	for word := range d.getAllFourLetterWords() {
+		if word == "XMAS" {
+			res++
+		}
+	}
+	return res
+}
 
 func (d Day) getAllFourLetterWords() <-chan string {
 	lines := strings.Split(d.ReadInput(), "\n")
@@ -53,14 +62,4 @@ func (d Day) getAllFourLetterWords() <-chan string {
 	}()
 
 	return wordChannel
-}
-
-func (d Day) firstPart() {
-	res := 0
-	for word := range d.getAllFourLetterWords() {
-		if word == "XMAS" {
-			res++
-		}
-	}
-	fmt.Println(res)
 }

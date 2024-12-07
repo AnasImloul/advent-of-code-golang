@@ -1,11 +1,10 @@
 package day_03
 
 import (
-	"fmt"
 	"regexp"
 )
 
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	input := d.ReadInput()
 
 	pattern := regexp.MustCompile(`(?P<Mul>mul\(\d+,\d+\))|(?P<Do>do\(\))|(?P<Dont>don't\(\))`)
@@ -36,5 +35,5 @@ func (d Day) secondPart() {
 			}
 		}
 	}
-	fmt.Println(res)
+	return res
 }

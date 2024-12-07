@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-func (d Day) firstPart() {
+func (d Day) firstPart() any {
 	input := d.ReadInput()
 
 	pattern := regexp.MustCompile("mul\\(\\d+,\\d+\\)")
@@ -18,5 +18,5 @@ func (d Day) firstPart() {
 	for _, m := range matches {
 		res += d.parseMul(m[0])
 	}
-	fmt.Println(res)
+	return res
 }

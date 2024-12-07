@@ -84,7 +84,7 @@ func updateYearFile(yearFilePath string, year, day int) error {
 
 	// Prepare the import and case statements
 	importStatement := fmt.Sprintf("\"github.com/AnasImloul/advent-of-code-golang/internal/%d/day_%s\"", year, dayStr)
-	caseStatement := fmt.Sprintf("case %d:\n\t\tday_%s.Solver.Solve(part)", day, dayStr)
+	caseStatement := fmt.Sprintf("case %d:\n\t\treturn day_%s.Solver.Solve(part)", day, dayStr)
 
 	// Check if the import statement exists
 	importPattern := regexp.MustCompile(fmt.Sprintf(`\Q%s\E`, importStatement))

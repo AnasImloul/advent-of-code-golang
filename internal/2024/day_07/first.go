@@ -1,10 +1,6 @@
 package day_07
 
-import (
-	"fmt"
-)
-
-func (d Day) firstPart() {
+func (d Day) firstPart() any {
 	var res int64 = 0
 
 	// List of operations to use in firstPart (addition and multiplication only)
@@ -18,5 +14,5 @@ func (d Day) firstPart() {
 			res += int64(equation.Value)
 		}
 	}
-	fmt.Println(res)
+	return res
 }

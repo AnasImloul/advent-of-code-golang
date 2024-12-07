@@ -1,11 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/AnasImloul/advent-of-code-golang/internal/generate"
 	"github.com/AnasImloul/advent-of-code-golang/internal/run"
 	"log"
 	"os"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -47,7 +49,18 @@ func main() {
 		if part != "first" && part != "second" {
 			log.Fatalf("Invalid part type: %s", part)
 		}
-		run.Solution(year, day, part)
+
+		// Start timer
+		start := time.Now()
+
+		// Execute solution
+		result := run.Solution(year, day, part)
+
+		// End timer
+		elapsed := time.Since(start)
+
+		fmt.Println(result)
+		fmt.Printf("Execution Time: %d microseconds\n", elapsed.Microseconds())
 	default:
 		log.Fatalf("Invalid command: %s", command)
 	}

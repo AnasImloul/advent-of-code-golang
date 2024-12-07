@@ -1,8 +1,6 @@
 package day_06
 
-import "fmt"
-
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	grid := d.readGrid()
 
 	visited := d.markSafePositions(grid)
@@ -24,6 +22,5 @@ func (d Day) secondPart() {
 			}
 		}
 	}
-
-	fmt.Println(res)
+	return res
 }

@@ -1,8 +1,6 @@
 package day_02
 
-import "fmt"
-
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	res := 0
 
 	for _, report := range readReports() {
@@ -22,5 +20,5 @@ func (d Day) secondPart() {
 			res++
 		}
 	}
-	fmt.Println(res)
+	return res
 }

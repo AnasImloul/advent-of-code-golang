@@ -1,12 +1,19 @@
 package day_01
 
 import (
-	"fmt"
 	"strings"
 )
 
+func (d Day) firstPart() any {
+	var res = 0
+	for _, line := range strings.Split(d.ReadInput(), "\n") {
+		var left, right = parseLine(line)
+		res += left*10 + right
+	}
+	return res
+}
+
 func parseLine(line string) (int, int) {
-	fmt.Println(test)
 	var left, right = -1, -1
 	// parse left to right
 	for i := 0; i < len(line); i++ {
@@ -25,13 +32,4 @@ func parseLine(line string) (int, int) {
 	}
 
 	return left, right
-}
-
-func (d Day01) firstPart() {
-	var res = 0
-	for _, line := range strings.Split(d.ReadInput(), "\n") {
-		var left, right = parseLine(line)
-		res += left*10 + right
-	}
-	fmt.Println(res)
 }

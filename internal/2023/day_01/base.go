@@ -4,18 +4,18 @@ import (
 	"github.com/AnasImloul/advent-of-code-golang/internal/day"
 )
 
-type Day01 struct {
+type Day struct {
 	day.Base
 }
 
-func Solve(part string) {
-	d := Day01{
-		Base: day.Base{
-			Year: 2023,
-			Day:  1,
-		},
-	}
-	d.FirstPart = d.firstPart
-	d.SecondPart = d.secondPart
-	d.Solve(part)
+var Solver = Day{
+	Base: day.Base{
+		Year: 2024,
+		Day:  1,
+	},
+}
+
+func init() {
+	Solver.FirstPart = Solver.firstPart
+	Solver.SecondPart = Solver.secondPart
 }

@@ -1,10 +1,6 @@
 package day_01
 
-import (
-	"fmt"
-)
-
-func (d Day) secondPart() {
+func (d Day) secondPart() any {
 	var seq1, seq2 = readSequences()
 
 	var count = map[int]int{}
@@ -19,5 +15,5 @@ func (d Day) secondPart() {
 		res += int64(count[num]) * int64(num)
 	}
 
-	fmt.Println(res)
+	return res
 }

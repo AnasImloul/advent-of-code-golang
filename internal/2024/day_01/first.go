@@ -1,12 +1,11 @@
 package day_01
 
 import (
-	"fmt"
 	"math"
 	"sort"
 )
 
-func (d Day) firstPart() {
+func (d Day) firstPart() any {
 	var res = 0
 	var seq1, seq2 = readSequences()
 
@@ -22,5 +21,5 @@ func (d Day) firstPart() {
 		res += int(math.Abs(float64(seq1[i] - seq2[i])))
 	}
 
-	fmt.Println(res)
+	return res
 }
