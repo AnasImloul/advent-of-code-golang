@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+var test = 0
+
 // Map for literal number parsing
 var numberLiterals = map[string]int{
 	"one":   1,

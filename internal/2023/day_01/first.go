@@ -6,6 +6,7 @@ import (
 )
 
 func parseLine(line string) (int, int) {
+	fmt.Println(test)
 	var left, right = -1, -1
 	// parse left to right
 	for i := 0; i < len(line); i++ {

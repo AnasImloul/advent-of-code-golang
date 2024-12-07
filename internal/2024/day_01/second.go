@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func (d Day01) secondPart() {
+func (d Day) secondPart() {
 	var seq1, seq2 = readSequences()
 
 	var count = map[int]int{}

@@ -7,12 +7,11 @@ import (
 	"strings"
 )
 
-type Day01 struct {
+type Day struct {
 	day.Base
 }
 
-// Declare `d` as a global variable
-var d = Day01{
+var Solver = Day{
 	Base: day.Base{
 		Year: 2024,
 		Day:  1,
@@ -20,21 +19,16 @@ var d = Day01{
 }
 
 func init() {
-	// Initialize `d` once during package initialization
-	d.FirstPart = d.firstPart
-	d.SecondPart = d.secondPart
-}
-
-func Solve(part string) {
-	d.Solve(part)
+	Solver.FirstPart = Solver.firstPart
+	Solver.SecondPart = Solver.secondPart
 }
 
 func readSequences() ([]int, []int) {
 
-	var seq1 = []int{}
-	var seq2 = []int{}
+	var seq1 []int
+	var seq2 []int
 
-	for _, line := range input.ReadLines(d.Year, d.Day) {
+	for _, line := range input.ReadLines(Solver.Year, Solver.Day) {
 		var nums = strings.Split(line, "   ")
 		num1, _ := strconv.Atoi(nums[0])
 		num2, _ := strconv.Atoi(nums[1])

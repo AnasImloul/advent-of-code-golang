@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-func (d Day01) firstPart() {
+func (d Day) firstPart() {
 	var res = 0
 	var seq1, seq2 = readSequences()
 

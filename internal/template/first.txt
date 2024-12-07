@@ -1,0 +1,4 @@
+package day_XX
+
+
+func (d Day) firstPart() {}
