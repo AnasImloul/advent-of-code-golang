@@ -1,4 +1,6 @@
 package day_XX
 
 
-func (d Day) firstPart() {}
+func (d Day) firstPart() any {
+    return nil
+}
